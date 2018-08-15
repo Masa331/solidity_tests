@@ -1,16 +1,10 @@
-const Web3 = require('web3');
-const web3 = new Web3('http://127.0.0.1:8545');
+var Web3 = require('web3');
+var web3 = new Web3('http://127.0.0.1:8545');
+var accounts = await web3.eth.getAccounts();
+var alice = accounts[0]
 
-const Looper = require('./build/contracts/Looper.json');
+var W = require('./build/contracts/Warehouse.json');
 
-main = async () => {
-  const accounts = await web3.eth.getAccounts()
-
-  looper = await (new web3.eth.Contract(Looper.abi))
-    .deploy({ data: Looper.bytecode, arguments: [2] })
-    .send({ from: accounts[0], gas: '1000000' });
-
-  console.log('Looper addr is: ', looper.options.address);
-}
-
-main();
+var w = new web3.eth.Contract(W.abi);
+w = await w.deploy({ data: W.bytecode }).send({ from: alice, gas: '1000000' });
+await w.methods.storageInt().call();
