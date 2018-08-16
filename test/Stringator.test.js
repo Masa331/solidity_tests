@@ -26,8 +26,25 @@ contract('Stringator', async (accounts) => {
   it("length can be measured", async () => {
     await stringator.change("new memo");
 
-    let result = await stringator.memoLength();
-    expect(result.toNumber()).to.eq(7);
+    let result = await stringator.length();
+    expect(result.toNumber()).to.eq(8);
   });
-});
 
+  it("cyrilic string length", async () => {
+    let result = await stringator.bytesLengthIsNotReliable();
+    expect(result.toNumber()).to.eq(2);
+  });
+
+
+  describe("#clear", async () => {
+    it("clears string", async () => {
+      await stringator.change("new memo");
+      await stringator.clear();
+
+      let result = await stringator.length();
+
+      expect(result.toNumber()).to.eq(0);
+    });
+  });
+
+});
