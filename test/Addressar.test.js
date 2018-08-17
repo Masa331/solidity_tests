@@ -61,11 +61,11 @@ contract('Addressar', async (accounts) => {
 
   describe('#sendr', async () => {
     it("sends funds and doesn't throw on errorr", async () => {
-      await address.sendr(address2.address, 11);
+      await address.sendr(address2.address, 5);
 
       result = await address2.thisBalance();
 
-      expect(result.toNumber()).to.eq(0);
+      expect(result.toNumber()).to.eq(5);
     });
   });
 

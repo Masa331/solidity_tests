@@ -26,6 +26,10 @@ contract Addressar {
     _addr.transfer(amount);
   }
 
+  function sendr(address _addr, uint amount) public {
+    _addr.send(amount);
+  }
+
   function calr(int addition) public {
     // these work!!
     // result = addr.call.gas(1000000)(bytes4(sha3("setTen()")));
