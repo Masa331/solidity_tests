@@ -20,4 +20,8 @@ contract Byter {
   function append(byte addition) public {
     myBytes.push(addition);
   }
+
+  function addff() public {
+    myBytes.push(hex"ff");
+  }
 }

@@ -64,4 +64,15 @@ contract('Byter', async (accounts) => {
       expect(result).to.eq("0x11ffcc");
     });
   });
+
+  describe('#append', async () => {
+    it('appends byte to myBytes', async () => {
+      await byter.setBytes('0xaa');
+
+      await byter.addff();
+      result = await byter.myBytes();
+
+      expect(result).to.eq("0xaaff");
+    });
+  });
 });

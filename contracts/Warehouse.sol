@@ -15,4 +15,16 @@ contract Warehouse {
 
     storageInt += addition;
   }
+
+  function setTen() public {
+    storageInt = 10;
+  }
+
+  function something(string _neco) public {
+    storageInt = 10;
+  }
+
+  function setFive(int _neco) public {
+    storageInt = 5;
+  }
 }
