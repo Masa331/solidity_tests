@@ -22,6 +22,6 @@ contract Ary {
   }
 
   function setMember(int num) public {
-    fixedAc[4] = num;
+    fixedAc[2] = num;
   }
 }
